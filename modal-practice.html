@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="">
+    <title>Let's Practice!</title>
+    <style media="screen">
+
+      .modal{
+        display: none;
+        padding-top: 100px;
+        z-index: 1;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .modal-content{
+        background-color: white;
+        position: relative;
+        padding: 0;
+        font-size: 20px;
+        margin: auto;
+        width: 80%;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        animation-name: animateleft;
+        animation-duration: 0.6s
+      }
+
+      /* Add Animation */
+      @-webkit-keyframes animateleft {
+          from {left:-300px; opacity:0}
+          to {left:0; opacity:1}
+      }
+
+      @keyframes animateleft {
+          from {left:-300px; opacity:0}
+          to {left:0; opacity:1}
+      }
+
+      /* The Close Button */
+      .close {
+          color: white;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+          color: #000;
+          text-decoration: none;
+          cursor: pointer;
+      }
+
+      .modal-header {
+          padding: 2px 16px;
+          background-color: #5cb85c;
+          color: white;
+      }
+
+      .modal-body {padding: 2px 16px;}
+
+      .modal-footer {
+          padding: 2px 16px;
+          background-color: #5cb85c;
+          color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#" id="modal-one" onclick="openModalOne()">Open Modal</a> | <a href="#" id="modal-two" onclick="openModalTwo()">Other Modal</a>
+    </nav>
+
+    <p>Let's open up this modal!</p>
+
+    <!--Open the Modal-->
+    <button type="button" name="modal" id="myBtn">Open Modal</button>
+
+
+    <!--The Modal-->
+    <div class="modal" id="modal1">
+
+      <div class="modal-content">
+        <header class="modal-header">
+          <span class="close">&times;</span>
+          <h2>Modal Header 1</h2>
+        </header>
+        <main class="modal-body">
+          <p>This is the modal body 1</p>
+        </main>
+        <footer class="modal-footer">
+          <h3>Modal Footer 1</h3>
+        </footer>
+      </div>
+    </div>
+
+    <div class="modal" id="modal2">
+
+      <div class="modal-content">
+        <header class="modal-header">
+          <span class="close">&times;</span>
+          <h2>Modal Header 2</h2>
+        </header>
+        <main class="modal-body">
+          <p>This is the modal body 2</p>
+        </main>
+        <footer class="modal-footer">
+          <h3>Modal Footer 2</h3>
+        </footer>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+
+      function openModalOne(){
+        var span = document.getElementsByClassName("close")[0];
+        var modalOne = document.getElementById('modal-one');
+        var modal1 = document.getElementById('modal1');
+
+        modal1.style.display = "block";
+
+        span.onclick = function() {
+          modal1.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+          if (event.target == modal1) {
+              modal1.style.display = "none";
+          }
+      }
+    }
+
+      function openModalTwo(){
+        var span = document.getElementsByClassName("close")[1];
+        var modal2 = document.getElementById('modal2');
+        var modalTwo = document.getElementById('modal-two');
+
+        modal2.style.display = "block";
+
+        span.onclick = function() {
+          modal2.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+          if (event.target == modal2) {
+              modal2.style.display = "none";
+          }
+      }
+    }
+
+    </script>
+
+  </body>
+</html>
